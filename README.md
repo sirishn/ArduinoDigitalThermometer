@@ -1,6 +1,6 @@
 #Arduino Digital Thermometer
 
-![Schematic](https://i.imgur.com/NgmeYtA.png)
+![Schematic](https://i.imgur.com/h2RSap5.png)
 
 Arduino Digital Thermometer is a digital thermometer for Arduino.
 
