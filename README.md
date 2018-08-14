@@ -16,6 +16,6 @@ Arduino Digital Thermometer is a digital thermometer for Arduino.
 
 **DO NOT USE FOR MEDICAL PURPOSES** 
 
-[![Thermometer in use](https://thumbs.gfycat.com/AmusedHealthyLeech-mobile.mp4)](https://gfycat.com/AmusedHealthyLeech)
+[![Thermometer in use](https://thumbs.gfycat.com/AmusedHealthyLeech-size_restricted.gif)](https://gfycat.com/AmusedHealthyLeech)
 
 
