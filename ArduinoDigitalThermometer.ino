@@ -67,18 +67,22 @@ void loop() {
 
 
   float temp_f = 9.0/5.0*steinhart+32.0;
-  printFloat(temp_f);
+  printFloat(temp_f, 0);
 
     delay(9);
 }
 
-void printFloat(float x) { // It's like Ledcontrol's printnumber, except for temperature range floats
-    int ones;
-    int tens;
-    int hundreds;
-    int tenths;
+void printFloat(float x, int addr) { // It's like Ledcontrol's printnumber, except for temperature range floats
+    int ones=0;
+    int tens=0;
+    int hundreds=0;
+    int tenths=0;
     boolean negative;  
     negative=false;
+
+    int offset;
+    offset = 0;
+    if (addr == 1) offset = 4; 
 
     if(x < -999 || x > 9999) 
        return;
@@ -86,49 +90,38 @@ void printFloat(float x) { // It's like Ledcontrol's printnumber, except for tem
         negative=true;
         x=x*-1;
     }
- /*
+
     int v=int(x*10.0);
     tenths=v%10;
-    ones=v%100;
-    tens=v%1000;
-    hundreds=v%10000;
-      */  
-    int v=int(x*10.0);
-    tenths=v%10;
-    v=v/10;
-    ones=v%10;
-    v=v/10;
-    tens=v%10;
-    v=v/10;
-    hundreds=v%10;
-         
+    ones=v/10%10;
+    tens=v/100%10;
+    hundreds=v/1000%10;
+  
     if(negative) {
        //print character '-' in the leftmost column 
-       lc.setChar(0,3,'-',false);
+       lc.setChar(0,3+offset,'-',false);
        if (hundreds >= 1) {
-        lc.setDigit(0,2,(byte)hundreds,false);
-        lc.setDigit(0,1,(byte)tens,false);
-        lc.setDigit(0,0,(byte)ones,false);
+        lc.setDigit(0,2+offset,(byte)hundreds,false);
+        lc.setDigit(0,1+offset,(byte)tens,false);
+        lc.setDigit(0,0+offset,(byte)ones,false);
        }
        else {
         if (tens >=1 ) 
-          lc.setDigit(0,2,(byte)tens,false);
+          lc.setDigit(0,2+offset,(byte)tens,false);
         else
-          lc.setChar(0,2,' ',false);
-        lc.setDigit(0,1,(byte)ones,true);
-        lc.setDigit(0,0,(byte)tenths,false);
+          lc.setChar(0,2+offset,' ',false);
+        lc.setDigit(0,1+offset,(byte)ones,true);
+        lc.setDigit(0,0+offset,(byte)tenths,false);
        }
     }
     else {
-       //print a blank in the sign column
-       if (hundreds >= 1) lc.setDigit(0,3,(byte)hundreds,false);
-       else lc.setChar(0,3,' ',false);
+       if (hundreds >= 1) lc.setDigit(0,3+offset,(byte)hundreds,false);
+       else lc.setChar(0,3+offset,' ',false);
       
-      if (tens >= 1) lc.setDigit(0,2,(byte)tens,false);
-      else lc.setChar(0,2,' ',false);
-    lc.setDigit(0,1,(byte)ones,true);
-    lc.setDigit(0,0,(byte)tenths,false);
+      if (tens >= 1 | hundreds >= 1) lc.setDigit(0,2+offset,(byte)tens,false);
+      else lc.setChar(0,2+offset,' ',false);
+    lc.setDigit(0,1+offset,(byte)ones,true);
+    lc.setDigit(0,0+offset,(byte)tenths,false);
     }
-    //Now print the number digit by digit
 
 }
