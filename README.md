@@ -12,10 +12,12 @@ Arduino Digital Thermometer is a digital thermometer for Arduino.
 * 1x MAX7219 
 * 1x 4 Digit Common Cathode 7 Segment LED Display
 
-***WARNING!!! ARDUINO DIGITAL THERMOMETER MAY FALSELY REPORT THAT YOU HAVE A FEVER UP TO 15% OF THE TIME***
+[![Thermometer with filtering] (https://thumbs.gfycat.com/EagerWildIberiannase-size_restricted.gif)](https://gfycat.com/gifs/detail/EagerWildIberiannase)
+
+***WARNING!!! WITHOUT FILTERING, ARDUINO DIGITAL THERMOMETER MAY FALSELY REPORT THAT YOU HAVE A FEVER UP TO 15% OF THE TIME***
 
 **DO NOT USE FOR MEDICAL PURPOSES** 
 
-[![Thermometer in use](https://thumbs.gfycat.com/AmusedHealthyLeech-size_restricted.gif)](https://gfycat.com/AmusedHealthyLeech)
+[![Thermometer in use, without filtering](https://thumbs.gfycat.com/AmusedHealthyLeech-size_restricted.gif)](https://gfycat.com/AmusedHealthyLeech)
 
 
