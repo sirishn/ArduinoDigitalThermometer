@@ -10,6 +10,7 @@ LedControl lc=LedControl(12,11,10,1);
 #define TEMPERATURENOMINAL 25
 
 #define SENSOR_HISTORY_LENGTH 99
+#define MAF 1 // 0 FOR NO MOVING AVERAGE FILTER
 int sensor1history[SENSOR_HISTORY_LENGTH];
 int sensor1;
 int sensorIndex = 0;
@@ -37,10 +38,11 @@ void loop() {
       
     long average1 = 0;
     for (int i = 0; i < (SENSOR_HISTORY_LENGTH); i=i+1 ){
-      average1 += sensor1history[sensorIndex];
+      average1 += sensor1history[i];
     }
 
-    sensor1 = average1/SENSOR_HISTORY_LENGTH;
+	if (MAF) sensor1 = average1/SENSOR_HISTORY_LENGTH;
+	else sensor1 = sensor1history[sensorIndex];
 
       if (sensorIndex == SENSOR_HISTORY_LENGTH - 1){
     sensorIndex = 0;
