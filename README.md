@@ -1,4 +1,4 @@
-#Arduino Digital Thermometer
+# Arduino Digital Thermometer
 
 ![Schematic](https://i.imgur.com/h2RSap5.png)
 
